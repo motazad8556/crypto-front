@@ -1,0 +1,76 @@
+<div class="withdraw-page">
+	<div class="row" id="WITHDRAW_ROW">
+		<div class="col col-12 col-sm-6" id="WITHDRAW_COLUMN">
+			<div>
+				<h1>Withdraw</h1>
+			</div>
+			<form id="WITHDRAW_FORM" [formGroup]="withdrawForm">
+				<app-current-funds></app-current-funds>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend"><span class="input-group-text">Token</span></div>
+						<select class="form-control" formControlName="token">
+							<option value="btc" selected>BTC</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" id="form_group_bitcoin_address">
+					<div class="input-group">
+						<div class="input-group-prepend"><span class="input-group-text">Destination Address</span></div>
+						<input class="form-control" type="text" formControlName="address">
+						<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend"><span class="input-group-text">Ammount</span></div><input
+							class="form-control" type="number" formControlName="ammount">
+						<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<button class="btn btn-primary btn-block" type="button" (click)="setAllFunds()">All</button>
+					</div>
+				</div>
+				<div class="form-group" id="NTFEE_INGROUP">
+					<div class="input-group">
+						<div class="input-group-prepend"><span class="input-group-text">Network Fee</span></div>
+						<div>
+							<div class="form-check">
+								<input type="radio" class="form-check-input"
+								formControlName="network_fee" value="1" id="high" name="network_fee" /><label
+									for="high" class="form-check-label">High Priority</label></div>
+							<div class="form-check"><input type="radio" class="form-check-input" id="medium"
+									formControlName="network_fee" value="2" 
+									name="network_fee" /><label for="medium" class="form-check-label">Medium
+									Priority</label></div>
+							<div class="form-check"><input type="radio" class="form-check-input" id="low"
+									formControlName="network_fee" value="3"
+									name="network_fee" /><label for="low" class="form-check-label">Low Priority</label>
+							</div>
+						</div>
+						<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h2>IMPORTANT NOTES</h2>
+					<ul>
+						<li>For security reasons, processes withdrawals with manual review once a day.</li>
+						<li>Submit your withdrawal by 13:00 UTC (about 5 hours) to be included in the day's batch.</li>
+					</ul>
+				</div>
+				<div class="form-group"><button class="btn btn-dark btn-block btn-lg"
+					(click)="placeNewWithdraw()"
+					type="button">SUBMIT</button>
+				</div>
+			</form>
+		</div>
+		<div class="col col-12 col-sm-6">
+			<div>
+				<h2>Withdraw History</h2>
+				<app-withdraw-history></app-withdraw-history>
+			</div>
+		</div>
+	</div>
+</div>

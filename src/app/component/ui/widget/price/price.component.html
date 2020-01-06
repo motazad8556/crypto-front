@@ -1,0 +1,18 @@
+<div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text price_xbt_label">PRICE XBT</span>
+		</div>
+		<input
+		*ngIf="price"
+		[value]="formatDollars(price.price)"
+		class="form-control"
+		type="text"
+		disabled />
+
+		<input
+		*ngIf="!price"
+		value="Loading..."
+		class="form-control" type="text" disabled />
+	</div>
+</div>

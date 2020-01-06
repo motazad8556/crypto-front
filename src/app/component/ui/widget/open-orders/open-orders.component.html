@@ -1,0 +1,82 @@
+<div class="table-responsive" id="open_orders_widget">
+	<div [ngClass]="{'loading': loading, 'd-none': !loading}">
+		<h3>Loading...</h3>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Order ID</th>
+				<th>Date</th>
+				<th>Pair</th>
+				<th>Leverage</th>
+				<th>Margin</th>
+				<th>Size</th>
+				<th>Side</th>
+				<th>Entry</th>
+				<th>Exit</th>
+				<th>Stop</th>
+				<th>Profit</th>
+				<th>Cancel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngIf="!openOrders || openOrders.length<1" class="no-records-tr">
+				<td colspan="12">
+					<h3>No open orders loaded yet.</h3>
+				</td>
+			</tr>
+			<tr *ngFor="let order of openOrders">
+				<td>{{order.id}}</td>
+				<td>{{order.dateTime | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+				<td>{{order.pair}}</td>
+				<td>{{order.leverage}}</td>
+				<td>{{order.margin}}</td>
+				<td>{{order.size}}</td>
+				<td>{{order.side}}</td>
+				<td>{{order.entry_price}}</td>
+				<td>
+					<div class="input-group small-input">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Addon</span>
+						</div>
+						<input class="form-control" type="number" [(ngModel)]="order.exit_price" />
+						<div class="input-group-append">
+							<button class="btn btn-info" type="button" (click)="saveExitPrice(order)">
+								<span class="fa fa-save"></span>
+							</button>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="input-group small-input">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Addon</span>
+						</div>
+						<input class="form-control" type="number" [(ngModel)]="order.stop_price"/>
+						<div class="input-group-append">
+							<button class="btn btn-info" type="button" (click)="saveStopPrice(order)">
+								<span class="fa fa-save"></span>
+							</button>
+						</div>
+					</div>
+				</td>
+				<td>--</td>
+				<td class="cell_cancel">
+					<button class="btn btn-secondary btn-block btn-sm"
+					(click)="cancelOrder(order)"
+					type="button">
+						CANCEL
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="paging">
+		<div>
+			<i class="fa fa-chevron-left" (click)="goBack()"></i>
+		</div>
+		<div style="text-align: right;">
+			<i class="fa fa-chevron-right" (click)="goForth()"></i>
+		</div>
+	</div>
+</div>

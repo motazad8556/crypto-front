@@ -1,0 +1,18 @@
+<div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text price_funds_label">FUNDS BTC</span>
+		</div>
+		<input
+		*ngIf="!loading"
+		[value]="current_funds"
+		class="form-control"
+		type="text"
+		disabled />
+
+		<input
+		*ngIf="loading"
+		value="Loading..."
+		class="form-control" type="text" disabled />
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="login-dark">
+	<form [formGroup]="signInForm" id="loginForm">
+		<h2 class="sr-only">Login Form</h2>
+		<div class="illustration"><img src="assets/img/logo.svg"></div>
+		<div class="form-group"><input class="form-control" 
+			type="email" name="email"
+			formControlName="email"
+			placeholder="Email"></div>
+		<div class="form-group"
+			id="passwordInputFormGroup"
+		><input class="form-control" 
+			type="password"
+			name="password" 
+			formControlName="password"
+			placeholder="Password">
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary btn-block" 
+			type="submit" (click)="signIn()">Start Trading</button>
+		</div>
+		<a class="forgot">Forgot your email or password?</a>
+	</form>
+</div>

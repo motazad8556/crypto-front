@@ -1,0 +1,179 @@
+<div>
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Place Order</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Deposit</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<app-coin-price></app-coin-price>
+		<app-current-funds></app-current-funds>
+		<div class="tab-pane active" role="tabpanel" id="tab-1">
+			<form [formGroup]="buyForm">
+				<div id="ORDTYPE">
+					<div class="table-responsive">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Order Type</span>
+											</div>
+											<div class="input-group-append">
+												<select class="form-control"
+												(change)="updateMarketOrder()"
+												formControlName="orderType">
+													<option [value]="ORDER_TYPE.LIMIT">Limit Order</option>
+													<option [value]="ORDER_TYPE.MARKET_ORDER">Market Order</option>
+												</select>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Side</span>
+											</div>
+											<div class="input-group-append">
+												<select class="form-control"
+												formControlName="orderSide">
+													<option [value]="ORDER_SIDE.SHORT">Short</option>
+													<option [value]="ORDER_SIDE.LONG">Long</option>
+												</select>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="table-responsive" id="ORD_QTY_LIMIT">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td><label class="btn btn-info" (click)="setNewBtcPrice()">Set Price</label></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">USD</span>
+										</div>
+										<input class="form-control"
+										(change)="setRequiredAmmount()"
+										min="10"
+										type="number"
+										formControlName="newBtcPrice" />
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Quantity</label></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">USD</span>
+										</div>
+										<input class="form-control"
+										(change)="setRequiredAmmount()"
+										min="100"
+										type="number"
+										formControlName="quantity" />
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+							<tr *ngIf="buyForm.controls['orderType'].value == ORDER_TYPE.LIMIT">
+								<td><label>Limit Price</label></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">USD</span>
+										</div>
+										<input class="form-control"
+										formControlName="limitPrice"
+										type="number" />
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Stop Price</label></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">USD</span>
+										</div>
+										<input class="form-control"
+										formControlName="stop_price"
+										type="number" />
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Exit Price</label></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">USD</span>
+										</div>
+										<input class="form-control"
+										formControlName="exit_price"
+										type="number" />
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Maker Only</label></td>
+								<td class="maker-only-td">
+									<div class="input-group">
+										<input class="form-control form-check-input"
+										formControlName="makerOnly"
+										type="checkbox"
+										id="formCheck-2"
+										class="form-check-label"
+										for="formCheck-2"/>
+										<div class="input-group-append"></div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="LEVERAGEDIV">
+					<br/>
+					<label for="customRange">Leverage: <b>{{buyForm.controls['leverage'].value}}x</b></label>
+					<input type="range" 
+					formControlName="leverage"
+					(change)="setRequiredAmmount()"
+					class="custom-range" 
+					id="customRange" name="points1" min="0" max="50" step="1">
+				</div>
+				<div id="QTYDIV"></div>
+				<div></div>
+				<br/>
+				<div class="required-label">
+					<span>Required XBT to fullfill order:</span>
+					<br/>
+					<span>{{requiredAmmount}}</span>
+				</div>
+				<div id="BUY_DIV">
+					<button class="btn btn-dark btn-block btn-lg place-order-button" type="button"
+					(click)="placeOrder()">
+						{{buyForm.controls['orderSide'].value === ORDER_SIDE.LONG ? 'Submit Order' : 'Submit Order'}}
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="tab-pane" role="tabpanel" id="tab-2">
+			<app-deposit-widget></app-deposit-widget>
+		</div>
+	</div>
+</div>

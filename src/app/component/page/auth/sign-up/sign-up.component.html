@@ -1,0 +1,82 @@
+<div class="register-photo">
+	<div class="form-container" id="mainFormContainer">
+		<div class="image-holder" *ngIf="false"></div>
+		<form [formGroup]="profileForm" id="mainform">
+			<h2 class="text-center"><strong>Create</strong> your account</h2>
+			<div class="form-group" class="avatar_img_group">
+				<img
+				id="previewImage"
+				src="https://www.gravatar.com/avatar/1234566?size=200&d=mm"
+				(click)="selectImage()"/>
+				<input autocomplete="off" type='file' id="imageFile" style="display: none" />
+				<br/>
+				<br/>
+			</div>
+			<div class="form-group"><input autocomplete="off" class="form-control" formControlName="firstName" type="firstName"
+					name="firstName" placeholder="First Name">
+				<small>
+					<label *ngIf="(formSent && firstNameControl.errors) || (firstNameControl.dirty && firstNameControl.errors)">You must provide a valid
+						first name</label>
+				</small>
+			</div>
+			<div class="form-group"><input autocomplete="off" class="form-control" formControlName="lastName" type="lastName"
+					name="lastName" placeholder="Last Name">
+				<small>
+					<label *ngIf="(formSent && lastNameControl.errors) || (lastNameControl.dirty && lastNameControl.errors)">You must provide a valid
+						last name</label>
+				</small>
+			</div>
+			<div class="form-group"><input autocomplete="off" class="form-control" formControlName="username" type="username"
+					name="username" placeholder="Username">
+				<small>
+					<label *ngIf="(formSent && usernameControl.errors) || (usernameControl.dirty && usernameControl.errors)">You must provide a valid
+						username</label>
+				</small>
+			</div>
+			<div class="form-group">
+					<select class="form-control"
+					id="countrySelection"
+					formControlName="country">
+						<option value="-20">Please select your country</option>
+						<option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+					</select>
+				<small>
+					<label *ngIf="(formSent && countryControl.errors) || (countryControl.dirty && countryControl.errors)">You must select a valid
+						country</label>
+				</small>
+			</div>
+			<div class="form-group">
+				<input autocomplete="off" class="form-control" formControlName="email" type="email" name="email"
+					placeholder="Email">
+				<small>
+					<label
+						*ngIf="formSent && emailControl.errors && (emailControl.errors['email'] || emailControl.errors['required'])">You
+						must provide a valid email</label>
+				</small>
+			</div>
+			<div class="form-group">
+				<input autocomplete="off" class="form-control" formControlName="password" type="password"
+					name="password" placeholder="Password">
+			</div>
+			<div class="form-group"><input autocomplete="off" class="form-control" type="password" formControlName="password2"
+					name="password-repeat" placeholder="Password (repeat)">
+				<small>
+					<label
+						*ngIf="password2Control.errors">Passwords must match</label>
+				</small>
+			</div>
+			<div class="form-group">
+				<div class="form-check"><label class="form-check-label"><input autocomplete="off" class="form-check-input"
+							formControlName="accept" type="checkbox">I agree to the license terms.</label>
+					<label
+						*ngIf="acceptControl.errors && acceptControl.errors['mustAcceptTerms']">Must
+						accept the license terms.</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary btn-block" (click)="signUp()" type="button"
+					style="background-color:rgb(13,6,101);">Sign Up</button>
+			</div><a [routerLink]="routeService.signIn" class="already">You already have an account? Login here.</a>
+		</form>
+	</div>
+</div>

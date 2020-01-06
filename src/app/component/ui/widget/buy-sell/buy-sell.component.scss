@@ -1,0 +1,151 @@
+.tab-pane {
+	padding-bottom: 10vh;
+}
+
+#tab1 {
+	min-height: 100vh;
+}
+
+#tab1>div {
+	display: table;
+}
+
+#tab1>div>p {
+	display: table-cell;
+}
+
+#tab1>div>p {
+	display: table-cell;
+}
+
+#tab1>div>p {
+	display: table-cell;
+}
+
+#tab1>div>paragraph {
+	display: table-cell;
+}
+
+#ORDTYPE>p {
+	display: inline-block;
+	padding-right: .5em;
+	font-weight: bolder;
+}
+
+#tab-1>div>button,
+select {
+	display: inline-block;
+}
+
+#ORDTYPE {
+	width: 100%;
+	text-align: center;
+	padding-top: .5em;
+}
+
+#BUY_SELL_COLUMN {
+	padding-right: 0em;
+}
+
+#MAKERONLYDIV {
+	padding-left: .5em;
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+#BUY_DIV {
+	text-align: center;
+	margin-top: 1em;
+}
+
+#BUY_DIV>button {
+	margin-bottom: 2em;
+}
+
+#BUY_DIV>button {
+	width: 90%;
+}
+
+#ORDTYPE>div>table>thead {
+	display: none;
+}
+
+#ORD_QTY_LIMIT>table>thead {
+	display: none;
+}
+
+#ORDTYPE>div>table>tbody>tr>td {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+#ORD_QTY_LIMIT>table>tbody>tr>td {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+#ORDTYPE>div>table>tbody>tr>td:first-child {
+	width: 40%;
+}
+
+#ORD_QTY_LIMIT>table>tbody>tr>td:first-child {
+	width: 40%;
+}
+
+#ORDTYPE>div>table>tbody>tr>td>.input-group {
+	padding-right: 0px;
+}
+
+#ORDTYPE>div>table>tbody>tr>td>.input-group>.input-group-append>select {
+	width: 100%;
+	height: 100%;
+}
+
+#ORDTYPE>div>table>tbody>tr>td>.input-group>.input-group-append {
+	width: 50%;
+	display: inline-block;
+}
+
+#ORDTYPE>div>table>tbody>tr>td>.input-group>.input-group-prepend {
+	width: 48%;
+	display: inline-block;
+}
+
+#ORD_QTY_LIMIT>table>tbody>tr>td>.input-group>.input-group-prepend {
+	width: 48%;
+	display: inline-block;
+}
+
+#ORDTYPE>div>table>tbody>tr>td>label {
+	padding-right: .2em;
+	padding-left: .2em;
+}
+
+#ORD_QTY_LIMIT>table>tbody>tr>td>label {
+	padding-right: .2em;
+	padding-left: .2em;
+}
+
+.required-label {
+	font-size: .9em;
+}
+
+.place-order-button {
+	width: 50%;
+	height: 50%;
+	font-size: .8em;
+	font-weight: bolder;
+}
+
+.maker-only-td > div > input {
+    width: 100%;
+    height: 1.1em;
+}

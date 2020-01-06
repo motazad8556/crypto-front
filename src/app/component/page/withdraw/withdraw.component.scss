@@ -1,0 +1,52 @@
+#WITHDRAW_FORM>.form-group>.input-group>.input-group-append {
+	display: none;
+}
+
+#WITHDRAW_FORM>.form-group {
+	margin-bottom: .5em;
+	margin-top: 1em;
+}
+
+#WITHDRAW_FORM>.form-group>.input-group {
+	margin-top: .5em;
+}
+
+#form_group_bitcoin_address>label {
+	font-weight: bold;
+}
+
+#WITHDRAW_COLUMN {
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 2em;
+}
+
+#WITHDRAW_FORM>.form-group>.input-group>.input-group-prepend>span {
+	width: 12em;
+	background: none;
+	border: none;
+	font-weight: bolder;
+}
+
+#NTFEE_INGROUP>div>div:nth-child(2) {
+	padding-left: 1em;
+}
+
+#WITHDRAW_ROW {
+	width: 100%;
+	margin: 0px;
+}
+
+#WITHDRAW_ROW>.col>div:first-child {
+	height: 3em;
+}
+
+#WITHDRAW_HISTORY_TABLE {
+	margin-top: 1em;
+}
+
+.withdraw-page {
+	padding-top: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}

@@ -1,0 +1,102 @@
+<div [ngClass]="{'full-page': showSearch}">
+	<div id="HISTORY_SEARCH_DIV" *ngIf="showSearch">
+		<span>Records Found: {{searchCount}}</span>
+		<form (submit)="freeSearchOrder($event)" class="query-search-input">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Search</span>
+				</div>
+					<input class="form-control" id="freeSearchInput" type="text" placeholder="SELECT * FROM MPH WHERE ..." />
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="button" (click)="freeSearchOrder()">
+						Search!
+					</button>
+				</div>
+			</div>
+		</form>
+		<div class="btn-group" role="group">
+			<button class="btn btn-info" type="button" (click)="showInfoModal()">?</button>
+			<button class="btn btn-primary" type="button" (click)='filterDate(1)'>This Month</button>
+			<button class="btn btn-primary" type="button" (click)="filterDate(2)">This Year</button>
+			<button class="btn btn-primary" type="button" (click)="filterDate(3)">Today</button>
+		</div>
+		<div class="modal fade" id="freeQueryHelpDialog" tabindex="-1" role="dialog" aria-labelledby="freeQueryHelpDialogLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="freeQueryHelpDialogLabel">Free Search Fields</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h4>Allowed Fields:</h4>
+						<li title="The ID for the position history record"><b>MPH_.id</b> &nbsp;<i class="badge badge-secondary">String</i><small></small></li>
+						<li title="The created-at date"><b>MPH_.created_at</b> &nbsp;<i class="badge badge-secondary">String</i><i class="badge badge-warning">mm/dd/yyyy HH:mm:ss</i></li>
+						<li title="The date for the last-updated-at time"><b>MPH_.updated_at</b> &nbsp;<i class="badge badge-secondary">String</i><i class="badge badge-warning">mm/dd/yyyy HH:mm:ss</i></li>
+						<li title="The date when the order was issued"><b>MPH_.date_time</b> &nbsp;<i class="badge badge-secondary">String</i><i class="badge badge-warning">mm/dd/yyyy HH:mm:ss</i></li>
+						<li title="The pair for the order"><b>MPH_.pair</b> &nbsp;<i class="badge badge-secondary">String</i></li>
+						<li title="The size for the position"><b>MPH_.size</b> &nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The side for the position with two possible values: 'short' or 'long'"><b>MPH_.side</b> &nbsp;<i class="badge badge-secondary">String</i><i class="badge badge-primary">'short'</i><i class="badge badge-primary">'long'</i></li>
+						<li title="The entry price for the position"><b>MPH_.entry_price</b> &nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The exit price for the position"><b>MPH_.exit_price</b> &nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The liquidation price for the order"><b>MPH_.liquidation_price</b> &nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The leverage for the order"><b>MPH_.leverage</b>&nbsp;<i class="badge badge-secondary">Integer</i></li>
+						<li title="The stop price to be used for the order"><b>MPH_.stop_price</b>&nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The margin for the order"><b>MPH_.margin</b>&nbsp;<i class="badge badge-secondary">Float</i></li>
+						<li title="The proffit for the order"><b>MPH_.profit</b>&nbsp;<i class="badge badge-secondary">Float</i></li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="table-responsive" id="order_history_widget_table">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Order ID</th>
+					<th>Date</th>
+					<th>Pair</th>
+					<th>Leverage</th>
+					<th>Margin</th>
+					<th>Size</th>
+					<th>Side</th>
+					<th>Entry Price</th>
+					<th>Exit Price</th>
+					<th>Liquidation Price</th>
+					<th>Profit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="text-align: center" *ngIf="!positionHistory || positionHistory.length<1"
+					class="no-records-tr">
+					<td colspan="11">
+						<h3>No position history found</h3>
+					</td>
+				</tr>
+				<tr *ngFor="let order of positionHistory">
+					<td>{{order.id}}</td>
+					<td>{{order.dateTime | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+					<td>{{order.pair}}</td>
+					<td>{{order.leverage}}</td>
+					<td>{{order.margin}}</td>
+					<td>{{order.size}}</td>
+					<td>{{order.side}}</td>
+					<td>{{order.entry_price}}</td>
+					<td>{{order.exit_price}}</td>
+					<th>{{order.liquidation_price}}</th>
+					<td>{{order.profit | number:'1.1-9'}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="paging">
+			<div>
+				<i class="fa fa-chevron-left" (click)="goBack()"></i>
+			</div>
+			<div style="text-align: right;" (click)="goForth()">
+				<i class="fa fa-chevron-right"></i>
+			</div>
+		</div>
+	</div>
+</div>

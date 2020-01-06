@@ -1,0 +1,35 @@
+#DEPOSIT_FORM>.form-group>.input-group>.input-group-append {
+	display: none;
+}
+
+#DEPOSIT_FORM>.form-group>.input-group {
+	margin-bottom: .5em;
+}
+
+#form_group_bitcoin_address>label {
+	font-weight: bold;
+}
+
+#DEPOSIT_COLUMN {
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 2em;
+}
+
+#DEPOSIT_MAIN_ROW>#DEPOSIT_HISTORY_COLUMN>div:first-child {
+	height: 4em;
+}
+
+#DEPOSIT_MAIN_ROW>#DEPOSIT_COLUMN>#DEPOSIT_FORM>.form-group:first-child>div#HEADING {
+	height: 4em;
+}
+
+#DEPOSIT_MAIN_ROW>#DEPOSIT_COLUMN>#DEPOSIT_FORM>.form-group:first-child>div#HEADING {
+	height: 4em;
+}
+
+.deposit-page {
+	padding-top: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}

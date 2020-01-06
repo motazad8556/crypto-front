@@ -1,0 +1,26 @@
+<form [formGroup]="depositForm" class="depositWidgetForm">
+	<div id="DEPOSITINPUTDIV">
+		<br/>
+		<input
+		class="form-control"
+		type="number" 
+		placeholder="Ammount"
+		formControlName="depositammount"
+		id="depositAmmount"
+		name="depositAmmount" max="100">
+		<br/>
+		<input
+		class="form-control"
+		type="string"
+		placeholder="Deposit Address"
+		formControlName="depositAddress"
+		id="depositAddress"
+		name="depositAddress">
+	</div>
+	<div id="BUY_DIV">
+		<button class="btn btn-dark btn-block btn-lg" type="button"
+		(click)="placeDeposit()">
+			DEPOSIT
+		</button>
+	</div>
+</form>

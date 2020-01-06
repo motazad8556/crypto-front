@@ -1,0 +1,31 @@
+<div class="table-responsive">
+	<div [ngClass]="{'loading': loading, 'd-none': !loading}">
+		<h3>Loading...</h3>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Ammount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngIf="!records || records.length<1" class="no-records-tr">
+				<td colspan="12">
+					<h3>No deposits loaded yet.</h3>
+				</td>
+			</tr>
+			<tr *ngFor="let record of records">
+				<td>{{record.createdAt | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+				<td>{{record.btc_ammount}}</td>
+			</tr>
+			<tr></tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td><i class="fa fa-chevron-left" (click)="goBack()" style="cursor: pointer;"></i></td>
+				<td style="text-align: right"><i class="fa fa-chevron-right" (click)="goForth()" style="cursor: pointer;"></i></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

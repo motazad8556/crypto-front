@@ -1,0 +1,26 @@
+<div id="OP_OO_OHTABS_COLUMN" style="padding-right:0PX;">
+	<div>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" role="tab" data-toggle="tab" href="#tab-open_positions">Open Positions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" role="tab" data-toggle="tab" href="#tab-open_orders">Open Orders</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" role="tab" data-toggle="tab" href="#tab-order_history">Position History</a>
+			</li>
+		</ul>
+		<div class="tab-content" id="OP_OO_OHTABS_CONTENT">
+			<div class="tab-pane active" role="tabpanel" id="tab-open_positions">
+				<app-open-positions></app-open-positions>
+			</div>
+			<div class="tab-pane" role="tabpanel" id="tab-open_orders">
+				<app-open-orders></app-open-orders>
+			</div>
+			<div class="tab-pane" role="tabpanel" id="tab-order_history">
+				<app-order-history-widget [showSearch]="false"></app-order-history-widget>
+			</div>
+		</div>
+	</div>
+</div>

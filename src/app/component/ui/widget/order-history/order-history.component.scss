@@ -1,0 +1,90 @@
+#order_history_widget_table>table {
+	font-size: .8em !important;
+}
+
+#order_history_widget_table>table>thead>tr>th {
+	padding: 0px;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-left: .3em;
+}
+
+#order_history_widget_table>table>tbody>tr>td.cell_cancel {
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+}
+
+#order_history_widget_table>table>tbody>tr>td {
+	padding-left: .2em;
+	padding-right: 0px;
+	vertical-align: middle;
+	padding-top: .2em;
+	padding-bottom: .2em;
+	border-right: .05em solid grey;
+}
+
+#order_history_widget_table>table>tbody>tr>td>.input-group>input {
+	width: 3em;
+}
+
+#order_history_widget_table>table>tbody>tr>td>.input-group>.input-group-prepend {
+	display: none;
+}
+
+
+.input-group {
+	min-width: 7em;
+}
+
+.no-records-tr {
+	td {
+		text-align: center;
+		padding: 2em;
+	}
+}
+
+.paging {
+	margin-bottom: 2em;
+	div {
+		display: inline-block;
+		width: 50%;
+		padding-right: 2em;
+		padding-left: 2em;
+		i {
+			font-size: 2em;
+			cursor: pointer;
+		}
+	}
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: rgb(13, 185, 13);
+}
+
+.small-input {
+	.form-control {
+		font-size: .9em;
+		min-width: 3em;
+	}
+	.input-group-append {
+		height: 2.46em;
+		button {
+			padding-top: .2em;
+		}
+	}
+}
+
+.full-page {
+	padding-top: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+
+	#order_history_widget_table{
+		min-height: 60vh;
+	}
+}

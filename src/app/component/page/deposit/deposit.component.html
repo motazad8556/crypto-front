@@ -1,0 +1,63 @@
+<div class="deposit-page">
+	<div class="row" id="DEPOSIT_MAIN_ROW">
+		<div class="col col-12 col-md-6" id="DEPOSIT_COLUMN">
+			<form id="DEPOSIT_FORM" [formGroup]="depositForm">
+				<div class="form-group">
+					<div id="HEADING">
+						<h1>Deposit</h1>
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend"><span class="input-group-text">Token</span></div>
+						<select class="form-control">
+							<option value="12" selected>BTC</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" id="form_group_bitcoin_address"><label>Your BTC deposit addess</label>
+					<input
+						class="form-control"
+						type="string"
+						placeholder="Deposit Address"
+						formControlName="depositAddress"
+						id="depositAddress"
+						name="depositAddress">
+				</div>
+				<div class="form-group" id="form_group_bitcoin_address"><label>Your BTC ammount</label>
+						<input
+						class="form-control"
+						type="number" 
+						placeholder="Ammount"
+						formControlName="depositammount"
+						id="depositAmmount"
+						name="depositAmmount" max="100">
+				</div>
+				<div class="form-group">
+					<h2>IMPORTANT NOTES</h2>
+					<ul>
+						<li>Do not send Litecoin, Bitcoin Cash, Tether to this address! Unfortunately, these networks
+							will accept Bitcoin multisig addresses as valid. Any unsupported coins sent here will be
+							lost.</li>
+						<li>The minimum deposit ammount is 0.0001 XBT (10.000 Satoshi).</li>
+						<li>Your deposit will be credited after 1 confirmation on the Bitcoin network.</li>
+						<li>Only accepts Bitcoin deposits. To get Bitcoin, you can exchange your local currency at any
+							major Bitcoin exchange.</li>
+						<li>All deposits addresses are multi-signature cold wallet addresses. No wallets are ever read
+							by an Internet-connected machine.</li>
+					</ul>
+				</div>
+				<div class="form-group"><button 
+					class="btn btn-success btn-block btn-lg"
+					type="button"
+					(click)="placeDeposit()"
+					>DEPOSIT</button>
+				</div>
+			</form>
+		</div>
+		<div class="col col-12 col-md-6" id="DEPOSIT_HISTORY_COLUMN">
+			<div>
+				<h2>Deposit History</h2>
+				<app-deposit-history></app-deposit-history>
+			</div>
+		</div>
+	</div>
+</div>

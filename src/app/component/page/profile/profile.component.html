@@ -1,0 +1,133 @@
+<div class="container profile profile-view" id="profile">
+	<div class="row">
+		<div class="col-md-12 alert-col relative">
+			<div class="alert alert-info absolue center"
+				role="alert"><button type="button" class="close"
+					data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save
+					with success</span></div>
+		</div>
+	</div>
+	<form>
+		<div class="form-row profile-row">
+			<div class="col-md-4 relative">
+				<div class="avatar">
+					<img class="avatar-bg center" *ngIf="!user || !user.photo"/>
+					<img class="avatar-bg center" *ngIf="user && user.photo" [src]="user.photo"/>
+				</div>
+				<input type="file" class="form-control" name="avatar-file" hidden="true">
+			</div>
+			<div class="col-md-8" *ngIf="user">
+				<h1>Profile </h1>
+				<hr>
+				<div class="form-row">
+					<div class="col col-12">
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text">First Name</span></div>
+							<input class="form-control" type="text" disabled="" [value]="user.firstName">
+							<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col col-12">
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text">Last Name</span></div>
+							<input class="form-control" type="text" disabled="" [value]="user.lastName">
+							<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col col-12">
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text">Username</span></div>
+							<input class="form-control" type="text" disabled="" [value]="user.username">
+							<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col col-12">
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text">Email</span></div>
+							<input class="form-control" type="text" disabled="" [value]="user.email">
+							<div class="input-group-append"><button class="btn btn-primary" type="button">Go!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col col-12">
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text">Country</span></div>
+							<select class="form-control"
+							disabled
+							id="countrySelection">
+								<option *ngFor="let country of countries"
+								[selected]="country.code === user.country"
+								[value]="country.code">{{country.name}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<h4
+					data-toggle="collapse" 
+					data-target="#collapseChangePassword"
+					aria-expanded="false" 
+					aria-controls="collapseChangePassword">Change Your Password</h4>
+				<div class="collapse" id="collapseChangePassword">
+					<form
+						[formGroup]="changePasswordForm"
+					>
+						<div class="form-row">
+							<div class="input-group">
+								<div class="input-group-prepend">
+								<span class="input-group-text">Password</span></div>
+								<input class="form-control"
+								formControlName="current"
+								type="password"
+								placeholder="Your current password">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="input-group">
+								<div class="input-group-prepend">
+								<span class="input-group-text">New</span></div>
+								<input class="form-control"
+								formControlName="new"
+								type="password" placeholder="New Password">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="input-group">
+								<div class="input-group-prepend"><span class="input-group-text">Repeat</span></div>
+								<input class="form-control"
+								formControlName="new2"
+								type="password" placeholder="Repeat your New Password">
+								<br/>
+							</div>
+							<div class="input-group" *ngIf="
+							new2Control
+							&& new2Control.errors
+							&& new2Control.errors['notEqual']">
+								<small>
+									<label> New password must be be equal </label>
+								</small>
+							</div>
+						</div>
+						<div class="col col-12">
+							<div class="form-row">
+								<div class="col-md-12 content-right"><button class="btn btn-primary form-btn"
+										(click)="changePassword()">CHANGE</button></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

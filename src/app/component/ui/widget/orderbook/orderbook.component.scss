@@ -1,0 +1,48 @@
+#ORDERBOOK_WIDGET {
+	padding-right: 1em;
+	padding-left: 0em;
+	font-size: .8em;
+}
+
+#ORDERBOOK_WIDGET>div:first-child {
+	background-color: rgb(220, 220, 220);
+	padding-left: .2em;
+	padding-bottom: .1em;
+	padding-top: .1em;
+}
+
+#ORDERBOOK_WIDGET>div>table>tbody>tr>td {
+	padding-left: 0em;
+	text-align: right;
+	border: 0px;
+}
+
+#ORDERBOOK_WIDGET>div>.table>thead>tr>th {
+	text-align: right;
+}
+
+.green_cell {
+	background-color: rgb(181, 222, 192);
+}
+
+.red_cell {
+	background-color: rgb(237, 185, 171);
+}
+
+.green_cell_2 {
+	background-color: rgb(187, 218, 191);
+}
+
+#ORDERBOOK_WIDGET > div:nth-child(3) > table > thead > tr > th {
+	text-align: left;
+}
+
+#ORDERBOOK_WIDGET > div:nth-child(5) > table > thead > tr > th {
+	text-align: left;
+}
+
+#recent_trades_widget_container {
+	max-height: 60vh;
+	overflow: scroll;
+	padding: 0px;
+}
